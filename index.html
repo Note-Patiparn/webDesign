@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note's Patiparn Portfolio</title>
-    <link href="style/style.css" rel="stylesheet">
+    <link href="style/main.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/096b28afa9.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -15,6 +15,13 @@
 </head>
 <body>
     <header>
+        <div class="nametag">
+            <p>Note Patiparn<br>
+            "portfolio"</p>
+        </div>
+        <div class="scroll__wrapper">
+            <p class='scroll_p'><span class='scroll_sp'>SCROLL</span></p>
+        </div>
         <div class="logo">
             <a href="index.html"><img src="/assets/logo.svg" alt="logo"></a>
         </div>
@@ -23,14 +30,13 @@
         </button>
         <nav class="nav">
             <ul class="nav__list">
-                <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
-                <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
-                <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
+                <li class="nav__item"><a href="./index.html" class="nav__link hover--underline">Home</a></li>
+                <li class="nav__item"><a href="./aboutme.html" class="nav__link hover--underline">About Me</a></li>
+                <li class="nav__item"><a href="./myworks.html" class="nav__link hover--underline">Projects</a></li>
+                <li class="nav__item"><a href="./cv.html" target='_blank' class="nav__link hover--underline">CV</a></li>
             </ul>
         </nav>
     </header>
-
 
     <!-- close header-div -->
 
@@ -40,47 +46,158 @@
             <span class="section__counter--number">01</span>
        </div>
        <div class="intro__section--title">
-           <h1 class="section--title--Head">Introduce my self</h1>
-           <p class="section--title--subtitle">welcome to my Portfolio please try on hover the big circle</p>
+           <h1 class="section--title--Head">Welcome to My Portfolio <br>
+        I hope you enjoy</h1>
+           <p class="section--title--subtitle fade-up">Please try on hover the big circle</p>
+           <div class="underlined fade-in"></div>
        </div>
    </div>
 
     <!-- introduction -->
-    <div class="intro__wrapper">
-        <div class="arrow-container">
-            <img class="arrow" src="./assets/down-right-arrow.svg" alt="arrow-pointer">
+    <div class="intro__wrapper--flex--container">
+        <div class="intro__wrapper">
+                    <div class="arrow-container">
+                        <img class="arrow" src="./assets/down-right-arrow.svg" alt="arrow-pointer">
+                    </div>
+                    <div class="img__overlay--bg"></div>
+                    <div class="img__overlay">
+                        <p class="img__text"> I'm learning <br> front-end since January <br> 🗓️ </p>
+                    </div>
         </div>
-        <div class="img__overlay--bg"></div>
-        <div class="img__overlay">
-            <p class="img__text"> I've been learning <br> fronted since January <br> 🗓️ </p>
+        <div class="bigimg">
+            <img class='portrait' src="./assets/portrait.jpg" alt="my-portrait">
+            <div class="bigimg__subtitle fade-up">
+                <p class='bigimg__subtitle--text-left'>
+                    Patiparn, <br>
+                    Keawprasitchork
+                </p>
+                <p class='bigimg__subtitle--text-right'>1996</p>
+            </div>
+            <div class="underlined fade-in"></div>
         </div>
     </div>
+    <!-- close intro 1 -->    
+
+        <!-- close intro - wrapper  // arrow part -->
+        <div class="intro__wrapper--text">
+            <h1 class='intro__wrapper--text-tile'></h1>
+            <p class="intro__wrapper--text-text">An Ambitious and hard-working person who is capable of working 
+                in a hight-pressure environment and has high social skills
+                and an ability to adapt to the changing environment .
+                also a quick learner who is always ready to learn new things
+                I believe that every expedition must have many obstacles, but
+                I also believe that every obstacle that I experienced will lead me 
+                to success and to learn new things along the way. </p>
+            <div class="intro__wrapper--btn__container">
+                <a class="intro__wrapper--btn" href="./aboutme.html">About Me</a>
+            </div>
+        </div>
 
     <div class="intro__section--header">
         <div class="section__counter">
-             <p class="section__counter--number">02</p>
+                <p class="section__counter--number">02</p>
         </div>
         <div class="intro__section--title">
-            <h1 class="section--title--Head"></h1>
+            <h1 class="section--title--Head">My Projects</h1>
+            <p class="section--title--subtitle fade-up">This is some of my projects</p>
+            <div class="underlined fade-in"></div>
         </div>
     </div>
 
 
-    <div class="intro__section--header">
+    <div class="intro__wrapper--flex--container right-section">
+        <div class="myworks__wrapper">
+            <div class="img1--wrapper">
+                <img class='img1 mywork--img' src="./assets/mywork2.png" alt="work example1">
+                <div class="bigimg__subtitle fade-up">
+                    <p class='bigimg__subtitle--text-left'>
+                        Landing Page
+                    </p>
+                    <p class='bigimg__subtitle--text-right'>HTML , CSS</p>
+                </div>
+                <div class="underlined fade-in"></div>
+            </div>
+            <div class="img2--wrapper">
+                <img class='img2 mywork--img' src="./assets/mywork3.png" alt="work example2">
+                <div class="bigimg__subtitle fade-up">
+                    <p class='bigimg__subtitle--text-left'>
+                        Pacman
+                    </p>
+                    <p class='bigimg__subtitle--text-right'>HTML , CSS . JS</p>
+                </div>
+                <div class="underlined fade-in"></div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="intro__wrapper margin-left">
+        <div class="arrow-container">
+            <img class="arrow" src="./assets/down-left-arrow.svg" alt="arrow-pointer">
+        </div>
+        <div class="img__overlay--bg"></div>
+        <div class="img__overlay">
+            <p class="img__text"> See all my works <br> in github link - <br> inside my works page <br> 🖥️ </p>
+        </div>
+    </div>
+
+    <div class="intro__wrapper--btn__container mywork-btn">
+        <a class="intro__wrapper--btn" href="./aboutme.html">my work</a>
+    </div> 
+
+    <div class="moodboard__wrapper">
+        <img class='moodboard' src="./cv/moodboard/moodboard.jpg" alt="moodboard">
+        <div class="bigimg__subtitle fade-up">
+            <p class='bigimg__subtitle--text-left'>
+                Moodboard
+            </p>
+            <p class='bigimg__subtitle--text-right'>PS</p>
+        </div>
+        <div class="underlined fade-in"></div>
+    </div>
+
+    <footer class='footer--wrapper' id='contact'>
+    <div class="intro__section--header footer">
         <div class="section__counter">
              <p class="section__counter--number">03</p>
         </div>
         <div class="intro__section--title">
-            <h1 class="section--title--Head"></h1>
+            <h1 class="section--title--Head footer-title">CONTACT ME</h1>
         </div>
     </div>
-
+    <!-- close footer -->
+        <div class="link__wrapperline fade-in"></div>
+        <div class="footer__link__wrapper">
+            <div class="link__wrapper--social">
+                <p class="social--header">Socials</p>
+                <ul class='social--list'>
+                    <li class='social--list--item'><a class='social--list--link hover--underline' href="">Instagram</a></li>
+                    <li class='social--list--item'><a class='social--list--link hover--underline' href="">Faceboock</a></li>
+                    <li class='social--list--item'><a class='social--list--link hover--underline' href="">Github</a></li>
+                </ul>
+            </div>
+            <div class="link__wrapper--address">
+                <p class='address--header'>Address</p>
+                <p class='address--details'>Chiang Mai <br>
+                Thailand</p>
+            </div>
+            <div class="link__wrapper--email">
+                <p class='email--header'>Email</p>
+                <ul class='social--list'>
+                    <li class='social--list--item'><a class='social--list--link hover--underline' href="mailto:notexpen@gmail.com" target='_blank'>notexpen.email</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="link__wrapperline fade-in"></div>
+        <!-- closes social media links -->
+        <div class="footer--author-container">
+            <p class='footer--author-name'>Note Patiparn's PORTFOLIO</p>
+        </div>
+    </footer>
     <!-- close-main -->
 
-    <footer>
         <!-- use font awesome in fooooooooooooter 
         link it with email , ig , github &&  > location such as chiang mai . tel-  -->
-    </footer>
+
     <!-- font credit -->
     <!-- Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed by CC BY 3.0 -->
 <script src="script/script.js"></script>

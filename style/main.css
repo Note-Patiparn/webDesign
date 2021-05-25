@@ -1,0 +1,795 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {font-family: "Tw01";
+    src: url("../assets/mujifont.woff") format("woff");
+}
+
+@font-face {font-family: "Magnet";
+    src: url('../assets/magnetfont.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {font-family: "Magnet";
+    src: url(../assets/magnetfontBold.woff) format("woff");
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+:root {             
+    --bg--clr: #000;
+    --clr--text-light: #fff;
+
+    --h1-fs: 3.5rem;
+    --h2-fs: 2.5rem;
+    --h3-fs: 2rem;
+    --body-fs: 1.25rem;
+    --img-subtitle-fs: 1rem;
+    --link--fs: 1rem;
+    --arrow-fs-mob: .65rem;
+
+    --ff-title: 'Magnet', serif;
+    --ff-subtitle: 'Tw01', serif;
+    --ff-text: 'Tw01', serif;
+    --ff-counter: 'Great Vibes', cursive, serif;
+
+    --shadow: 0 2px 0.75rem rgb(51 51 51 / 35%); 
+    --shadow-box: box-shadow: 0px 2px 21px 5px rgba(255,240,230,0.54);
+    --gd-box: ;
+
+    --arrow-maxwidth: 120px;
+    /* > 799 = arrow's width need some adjust maybe 120 - 150px
+    but for 800 + using 180px - 200px  */
+
+    --gap: .8em;
+    /* --gap2 */
+
+}
+
+@media (min-width: 800px) {
+    /* change font-size here in root*/
+    :root{
+    --h1-fs: 5rem;
+    --h2-fs: 4rem;
+    --h3-fs: 3rem;
+    --body-fs: 1.65rem;
+    --arrow-fs-mob: 1rem;
+    --link--fs: 2rem;
+    --img-subtitle-fs: 1.5rem;
+    --arrow-maxwidth: 200px;
+    --arrow-fs-mob: 1.2rem;
+    }
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg--clr);
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--clr--text-light);
+    font-family: var(--ff-text);
+    font-size: var(--body-fs);
+    line-height: 1.6;
+    width: 90%;
+    margin: 0 auto;
+    min-width: 500px;
+    padding: 1em 1em 0 1em; 
+    -webkit-font-smoothing: antialiased;
+    /* padding for mobile device */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////
+                                                          layout 
+////////////// */
+
+/* header */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin-bottom: 2em;
+    height: 100vh;
+    positioN: relative;
+}
+
+.nametag {
+    position: absolute;
+    display: none;
+}
+
+.logo {
+    width: 100%;
+    max-width: 400px;
+}
+
+.nav {
+    position: fixed;
+    background: var(--bg--clr);
+    color: var(--clr--text-light);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    /* this is when nav open */
+    /* 0 0 0 0  make it overflow all over the page  */
+    /* z-index 100 = make it on top of everything */
+
+    transform: translateX(100%);
+    transition: transform 250ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: 'TwCenW01-Medium';
+}
+
+.nav__link {
+    color: var(--clr--text-light);
+    /* font-weight: var(--fw-bold); */
+    font-size: var(--h3-fs);
+    text-decoration: none;
+}
+
+/* .nav__link:hover {
+    color: var(--clr-text-onblack);
+} */
+
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    z-index: 1000;
+}
+
+.nav-open .nav {
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: absolute;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr--text-light);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+
+}
+
+.hamburger::before {
+    top: 6px;
+}
+.hamburger::after {
+    bottom: 6px;
+}
+
+.black__hamburger {
+    background: var(--bg--clr);
+}
+
+/* close header */
+
+/* //////////////////////////////////////////////////// counter header & number */
+
+.intro__section--header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2.5em;
+    position: relative;
+    z-index: 1;
+}
+
+.underlined {
+    width: 100%;
+    position: relative;
+}
+
+.underlined::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
+
+.link__wrapperline {
+    width: 80%;
+    position: relative;
+}
+.link__wrapperline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    height: 2px;
+    width: 100%;
+}
+
+.intro__section--title {
+    margin-left: 1em;
+}
+
+.right-section {
+    justify-content: flex-end;
+}
+
+/* close counter header  */
+
+/* //////////////////////////////////////////////////// introduction -- grid */
+
+.intro__wrapper--flex--container {
+    display: flex;
+    gap: 1.5em;
+    justify-content: space-around;
+}
+
+.intro__wrapper--text {
+    width: 100%;
+    line-height: 1.3;
+}
+
+/* closing introduction -- grid */
+
+/* //////////////////////////////////////////////////// introduction */
+
+.intro__wrapper {
+    width: 100%;
+    height: 100%;
+    /* max-width: 180px; */
+    max-width: var(--arrow-maxwidth);
+    position: relative;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid var(--clr--text-light);
+    z-index: 1;
+}
+
+.portrait {
+    /* max-width: 500px; */
+}
+
+/* ทำจากตรงนี้ ให้เล็งที่ .intro__wrapper:hover > .img__overlay 
+แล้วดัน opacity + ใส่ effect ตอนที่ text มันโผล่ */
+
+.img__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 1); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    pointer-events: none;
+    /* background: white; */
+    border-radius: 50%;
+    /* max-width: 180px; > this size is for 800px ++ for window mode change it in media 800 */
+    max-width: var(--arrow-maxwidth);
+    margin: 0 auto;
+    z-index: 99;
+    transform: scale(0);
+    transition: all 400ms ease-in-out;
+    transition-delay: 400ms;
+    /* text-align: center; */
+    /* border-radius: 50%; */
+}
+
+.arrow-container {
+    width: 100%;
+    position: relative;
+    border-radius: 50%;
+    /* position: absolute; */
+    transform: scale(1);
+    transition: all 250ms ease;
+    z-index: 1;
+}
+
+.img__overlay--bg {
+    /* max-width: 180px; */
+    max-width: var(--arrow-maxwidth);
+    /* max-height: 180px; */
+    max-height: var(--arrow-maxwidth);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    /* position: absolute; */
+    transform: scale(0);
+    transition: all 300ms ease;
+    transition-delay: 175ms;
+    z-index: 50;
+    background: var(--clr--text-light);
+}
+
+.arrow {
+    /* max-width: 180px;*/
+    max-width: 120px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    margin: 0 auto;
+    background: black;
+    /* transition-duration: 500ms; */
+    /* transition: background 250ms ease-out; */
+    /* background: #fff;   */
+}
+
+.intro__wrapper:hover .arrow-container {
+    transform: scale(0);
+}
+
+.intro__wrapper:hover .img__overlay--bg {
+    transform: scale(1);
+}
+
+.intro__wrapper:hover .img__overlay {
+    transform: scale(1);
+}
+
+.margin-left {
+    margin-left: 3em;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////
+                                                        Bigimg 
+////////////// */
+
+.bigimg {
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: 1px solid white; */
+}
+
+.bigimg__subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////
+                                                        mywork 
+////////////// */
+
+
+.myworks__wrapper  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.img1--wrapper,
+.img2--wrapper {
+    width: 80%;
+    margin-bottom: 2em;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////
+                                                        footer 
+////////////// */
+
+.footer {
+    margin: 0;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.footer--wrapper {
+    width: 100%;
+    margin-right: 0;
+}
+
+.footer__link__wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    min-width: 350px;
+}
+
+.footer--author-container {
+    display: flex;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+.hover--underline {
+    width: 100%;
+    position: relative;
+}
+.hover--underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr--text-light);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+.hover--underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* //////////////////////////////////////////////////////////////////////////////////////////
+                                                        typography 
+////////////// */
+
+
+.img__text {
+    color: var(--bg--clr);
+    font-size: var(--arrow-fs-mob);
+}
+
+.section__counter--number {
+    font-size: var(--h2-fs);
+    font-family: var(--ff-counter);
+    letter-spacing: 2px;
+}
+
+.section--title--Head {
+    font-size: var(--h2-fs);
+    font-family: var(--ff-title);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+.section--title--subtitle {
+    margin: 0;
+    margin-top: .5em;
+    line-height: 1;
+    font-size: var(--body-fs);
+    margin-bottom: 1em;
+}
+
+.intro__wrapper--text-text {
+    margin-top: 1.5em;
+}
+
+.bigimg__subtitle--text-left,
+.bigimg__subtitle--text-right {
+    font-size: var(--img-subtitle-fs);
+}
+
+.footer-title {
+    margin-bottom: .5em;
+}
+
+.social--list {
+    list-style: none;
+    padding: 0;
+}
+
+.social--list--link {
+    color: var(--clr--text-light);
+    text-decoration: none;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.social--list--item,
+.address--details {
+    font-size: var(--link--fs);
+    /* text-align: center; */
+}
+
+.footer--author-name {
+    font-size: var(--img-subtitle-fs);
+
+}
+
+.social--header,
+.address--header,
+.email--header {
+    /* text-align: center; */
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                        button   
+////////////// */
+.intro__wrapper--btn__container {
+    width: 100%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.intro__wrapper--btn {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--clr--text-light);
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /* border: 2px solid var(--clr--text-light);
+    border-radius: 3px; */
+    border: 2px solid black;
+    padding: 1em 1.5em;
+    position: relative;
+}
+
+.intro__wrapper--btn::before,
+.intro__wrapper--btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    width: 0;
+    height: 0;
+    border: 2px solid transparent;
+}
+
+.intro__wrapper--btn::before {
+    top: 0;
+    left: 0;
+}
+
+.intro__wrapper--btn::after {
+    right: 0;
+    bottom: 0;
+} 
+
+.intro__wrapper--btn:hover::before,
+.intro__wrapper--btn:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.intro__wrapper--btn:hover::before {
+    border-top-color: var(--clr--text-light);
+    border-right-color: var(--clr--text-light);
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.intro__wrapper--btn:hover::after {
+    border-bottom-color: var(--clr--text-light);
+    border-left-color: var(--clr--text-light);
+    transition: border-color 0s ease-out 0.5s, width .25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+.mywork-btn {
+    margin: 1em auto;
+}
+
+/* styling button */
+
+.intro__wrapper--btn:hover,
+.intro__wrapper--btn:focus {
+    color: rgba(255, 255, 255, .8);
+    
+}
+
+/* cv */
+
+.cv--img {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.moodboard__wrapper {
+    margin: 4em auto 2em auto;
+    max-width: 650px;
+}
+
+.moodboard {
+    border: 2px solid white;
+}
+
+/* ////////////
+svg  
+////////////// */
+
+
+.st0{fill:#FFFFFF;}
+.st1{
+    fill:none;stroke:#FFFFFF;
+    stroke-width:10;stroke-miterlimit:10;
+    position: relative;
+}
+
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////
+                                                    fade animation  
+////////////// */
+
+.fade-in{
+    /* opacity: 0; */
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 800ms ease-in;
+    /* transition: opacity 350ms ease-in; */
+}
+
+.fade-in.appear {
+    transform: scaleX(1);
+    /* opacity: 1; */
+}
+
+.fade-up{
+    opacity: 0;
+    transition: opacity 650ms ease-in;
+}
+.fade-up.appear {
+    opacity: 1;
+}
+
+
+/* close fade animation */
+
+
+
+/* scroll's word animation */
+
+.scroll__wrapper {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* padding-bottom: 2em; */
+    margin: 0;
+    padding-bottom: 2em;
+}
+
+.scroll_p {
+    display: inline-block;
+    overflow: hidden;
+    color: rgba(255, 255, 255, .6);
+}
+
+.scroll_sp {
+    animation-name: scroll;
+    position: relative;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+    @keyframes scroll {
+        0% {
+          top: -30px;
+        }
+        50% {
+          top: 0px;
+        }
+        100% {
+          top: 30px;
+        }
+      }
+
+
+
+
+/* close scroll's word animation */
+
+@media (min-width: 750px) {
+    .intro__wrapper--flex--container {
+        gap: 1.5em;
+    }
+    .arrow {
+        max-width: 200px;
+    }
+    .portrait {
+        max-width: 500px;
+    }
+    .intro__wrapper--text-text {
+        width: 85%;
+        margin: 1.5em auto 0;
+    }
+    .myworks__wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 1.2em; 
+        align-items: unset;
+    }
+    
+    .mywork--img {
+        max-width: 500px;
+    }
+    
+    .img2 {
+        min-width: 200px;
+        margin-top: 5em;
+    }
+    .nametag {
+        display: unset;
+        line-height: 1.2;
+        font-size: 1rem;
+        top: 0;
+        left: 0;
+        color: var(--bg--clr);
+        background: var(--clr--text-light);
+    }
+    .nametag p {
+        margin: 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .intro__wrapper--flex--container {
+        gap: 3em;
+    }
+}
+
+/* in 800px ++ I won't be using hamburger toggle nav . 
+because we have enough space to use now so we won't need that anymore */
+
+/* 800px + show text on top , sticky nav bar */
+
+

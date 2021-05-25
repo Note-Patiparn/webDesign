@@ -1,0 +1,35 @@
+
+.mywork__project {
+    padding-top: 5em;
+    width: 85%;
+}
+
+.downsize {
+    
+}
+
+.myworkspage-template {
+    margin-bottom: 2em;
+    min-width: 200px;
+}
+
+.project-link {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.project-link:hover {
+    color: rgba(255, 255, 255, .7);
+}
+
+@media (min-width: 1240px) {
+    .mywork__project {
+        width: 100%;
+    }
+    .myworks-wrapper__holder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+}
